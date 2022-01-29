@@ -218,4 +218,74 @@ def print_sum(first, second=4):                 # Function defination
     print(first + second)
 
 print_sum(1)                                    # Function call
-    
+
+
+#* Lambda Function
+
+x = lambda y : y * 2                            # 'lambda' is the keyword, y is the local variable that is created under a function
+print(x(5))                                     
+
+a = lambda p,q: p*q                             # multiply two numbers using lambda
+print(a(3,10))
+
+
+def mul(u):                                     # Lambda inside a function
+    return lambda v: u * v
+result = mul(5)  
+print(result(4)) 
+
+
+#* Types of Scopes
+
+# 1) Local variable 
+def aFun():
+    var1 = "I m a local variable"
+    print(var1)
+aFun()
+print(var1)
+
+# 2) Global Variable 
+var2 = "I m a global variable"
+def aFun():
+    print(var2)
+aFun()
+print(var2)
+
+# Functions inside a function
+def parentFun():
+    var3 = "I m a variable"
+    print(var3)
+    def childFun():                             # This func is present inside another func, In this case 2nd func can also use 1st func variables
+        print(var3)
+    childFun()
+parentFun()
+
+
+#* Global keyword
+                                                # 'Global' keyword to create a variable that can be accessed globally..
+def myFunc():
+    global x3                                    # we can declare global variable inside a func by using 'Global' keyboard
+    x3 = "A global variable"
+    print(x3)
+myFunc()
+print(x3)
+
+
+# Exception
+x2 = "A global variable"                         
+print(x2)
+def myFunc():
+    global x2                                    # If already a global variable is present then func global variable with same name will replace ..
+    x2 = "I'm a variable"
+    print(x2)
+myFunc()
+print(x2)
+
+
+#* ______________________________________________________________________________________________________________________
+
+#* This is how we can differentiate data structures..
+
+#* [] --> Lists
+#* () --> Tuples
+#* {} --> Sets and Dictionaries 
