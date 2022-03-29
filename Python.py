@@ -5,6 +5,7 @@ print("Hello World")                    # Python is case sensitive language ..
 name = "Bunny"
 age = 19
 print("My name is", name,"and my age is",age)
+print(f"My name is {name} and my age is {age}") # Another way to print with the help of f-string
 
 is_adult = True                                 # Boolean variables are also accepted in python
 
@@ -242,7 +243,7 @@ def aFun():
     var1 = "I m a local variable"
     print(var1)
 aFun()
-print(var1)
+# print(var1)
 
 # 2) Global Variable 
 var2 = "I m a global variable"
