@@ -1,6 +1,8 @@
 import sys
 from PyQt5.QtWidgets import *
 import pickle
+
+
 def main():
     app = QApplication(sys.argv)
     w = QWidget()
@@ -13,6 +15,7 @@ def main():
     productLabel.setText("Item Name:")
     costLabel.setText("Cost:")
     dict = {}
+
     def add():
         p = prodLine.text()
         c = costLine.text()
@@ -24,6 +27,7 @@ def main():
         table.setItem(row, 0, pcell)
         table.setItem(row, 1, ccell)
         print(dict)
+
     def delete():
         selected = table.selectedItems()
         name = selected[0].text()
@@ -32,11 +36,13 @@ def main():
         rowNo = selectedIndex[0].row()
         table.removeRow(rowNo)
         print(dict)
+
     def save():
         file = open("data1.pickle", "wb")
         pickle.dump(dict, file)
         file.close()
         print("data saved")
+
     def upload():
         file = open("data1.pickle", "wb")
         temp = pickle.load(file)
@@ -50,6 +56,7 @@ def main():
             table.setItem(row, 0, pcell)
             table.setItem(row, 1, ccell)
         file.close()
+
     def bill():
         file = open("data1.pickle", "rb")
         temp = pickle.load(file)
@@ -62,6 +69,7 @@ def main():
         msg.setText("your bill is" + str(sum))
         x = msg.exec_()
         file.close()
+        
     addButton = QPushButton()
     addButton.setText("ADD RECORD")
     addButton.clicked.connect(add)
@@ -97,5 +105,7 @@ def main():
     w.move(50, 200)
     w.show()
     sys.exit(app.exec_())
+
+
 if __name__ == "__main__":
     main()
